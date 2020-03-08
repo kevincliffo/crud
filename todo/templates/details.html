@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <title>Details</title>
+</head>
+<body>
+    <a href="/todo">Go Back</a>
+    {% if task.finished %}
+        <form class="site-form details task-finished" action="{% url 'todo:update' %}" method="post">
+    {% else %}
+        <form class="site-form details" action="{% url 'todo:update' %}" method="post">
+    {%endif%}    
+    <!-- <div class="site-form details">         -->
+        <br>
+        <h1>
+            {{task.name}}
+        </h1>
+        <p>
+            {{task.description}}
+        </p>
+        {{task.date_added}}
+        <p>{{task.slug}}</p>
+        
+        {% if task.finished %}
+            <p>Completed!</p>
+        {% else %}
+            <p>In Progress</p>
+        {%endif%}
+    </div>
+</body>
+</html>

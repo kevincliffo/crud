@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <title>Add Task</title>
+</head>
+<body>
+    <h1>Add New Task</h1>
+    <form class="site-form" action="{% url 'todo:add' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <br> 
+        <input type="submit" value="Add Task"/>
+    </form>
+    <a href="/todo">Go Back</a>
+    <script src="/static/js/slugify.js"></script>
+</body>
+</html>

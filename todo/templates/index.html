@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <title>Todo's</title>
+</head>
+<body>
+    <h1>Todos</h1>
+    {% for task in tasks %}
+        {% if task.finished %}
+            <form class="site-form task-finished" action="{% url 'todo:update' %}" method="post">
+        {% else %}
+            <form class="site-form" action="{% url 'todo:update' %}" method="post">
+        {%endif%}
+            {% csrf_token %}
+            <input type="hidden" name="task_id" id="task_id" value={{task.id}}>
+            <li>
+                <a href="/todo/details/{{task.id}}">{{task.name}}  </a> {{task.description}}
+                {% if task.finished %}
+                    <input type="checkbox" name="finished" id="finished_{{task.id}}" value=1 checked disabled>
+                    <input type="hidden" name="cb_val" id="task_id" value=True disabled>
+                    <input type="submit" value="Update" disabled>
+                {% else %}
+                    <input type="checkbox" name="finished" id="finished_{{task.id}}" value=0>
+                    <input type="hidden" name="cb_val" id="task_id" value=False>
+                    <input type="submit" value="Update">
+                {% endif %}
+                
+            </li>        
+        </form>
+    {% endfor %}
+    <h1><a href="/todo/add">Add Task</a></h1>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.site-form{
+    margin-top: 20px;
+    border: 2px solid #00dba0;
+    padding: 20px;
+    font-family: ubuntu;
+    background-color: aqua;
+}
+.task-finished{
+    margin-top: 20px;
+    border: 2px solid #00dba0;
+    padding: 20px;
+    font-family: ubuntu;
+    background-color: darkgrey;
+}
+.site-form input{
+    display: block;
+    margin: 20px 00 0 0;
+    padding: 10px;
+}
+.site-form input[type="submit"]{
+    background: #00dba0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin:10px 0
+}
+a{
+    font-family: ubuntu;
+}
+h1{
+    font-family: ubuntu;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 2.4em;
+}
+.details{
+    /* background-color: beige; */
+}
